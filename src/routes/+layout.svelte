@@ -7,6 +7,6 @@
 	<title>{$titleStore}</title>
 </svelte:head>
 
-<main class="container w-full h-full overflow-hidden">
+<main class="md:container w-full h-full overflow-hidden">
 	<slot />
 </main>
