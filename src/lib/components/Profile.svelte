@@ -4,6 +4,7 @@
 	import type { Link as TLink } from '$lib/types';
 	import Link from './Link.svelte';
 	import { toInitials } from '$lib/helper';
+	import Separator from './ui/separator/separator.svelte';
 
 	export let githubName: string;
 	export let name: string;
@@ -35,6 +36,11 @@
 				<div class="flex gap-3 text-base">
 					{#each links as link}
 						<Link {link} />
+						{#if links.indexOf(link) != links.length - 1}
+							<span>
+								<Separator orientation="vertical" />
+							</span>
+						{/if}
 					{/each}
 				</div>
 			</Card.Footer>

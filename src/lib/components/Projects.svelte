@@ -4,6 +4,7 @@
 	import { onMount } from 'svelte';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import { Github } from 'lucide-svelte';
+	import Separator from './ui/separator/separator.svelte';
 
 	export let supabase: SupabaseClient;
 
@@ -26,6 +27,8 @@
 					<p>
 						{description}
 					</p>
+					<br />
+					<Separator orientation="horizontal" />
 					<br />
 					<Button href="https://github.com/lucien-n/{slug}" class="flex items-center gap-1 w-fit"
 						><Github /> <strong>{branch}</strong></Button
