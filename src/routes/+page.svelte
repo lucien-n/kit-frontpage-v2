@@ -4,10 +4,11 @@
 	import type { Link } from '$lib/types';
 	import { LogOut, Plus } from 'lucide-svelte';
 	import type { PageData } from './$types';
+	import Projects from '$lib/components/Projects.svelte';
 
 	export let data: PageData;
 
-	$: ({ session } = data);
+	$: ({ session, supabase } = data);
 
 	const links: Link[] = [
 		{
@@ -30,6 +31,7 @@
 		workPlace={{ label: '@Everping', link: 'https://www.linkedin.com/company/everping/' }}
 		{links}
 	/>
+	<Projects {supabase} />
 	<div class="flex gap-2">
 		{#if session}
 			<Button href="new" class="flex gap-1">

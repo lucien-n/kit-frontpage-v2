@@ -29,9 +29,7 @@ export const actions: Actions = {
 
 		const { name, description, slug, branch } = form.data;
 
-		const { error } = await supabase
-			.from('repositories')
-			.insert({ name, description, slug, branch });
+		const { error } = await supabase.from('projects').insert({ name, description, slug, branch });
 
 		if (error) {
 			return fail(500, {
