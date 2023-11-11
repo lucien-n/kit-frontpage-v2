@@ -16,9 +16,11 @@
 	];
 </script>
 
-<Profile
-	githubName="lucien-n"
-	name="Lucien Neuhoff"
-	workPlace={{ label: '@Everping', link: 'https://www.linkedin.com/company/everping/' }}
-	{links}
-/>
+<div class="flex h-full w-full justify-center">
+	<Profile
+		githubName="lucien-n"
+		name="Lucien Neuhoff"
+		workPlace={{ label: '@Everping', link: 'https://www.linkedin.com/company/everping/' }}
+		{links}
+	/>
+</div>
