@@ -13,7 +13,6 @@
 	const dispatch = createEventDispatcher();
 
 	let loading = false;
-	let showPassword: boolean = false;
 
 	const handleSubmit: SubmitFunction = () => {
 		loading = true;
