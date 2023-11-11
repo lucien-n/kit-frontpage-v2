@@ -31,7 +31,7 @@
 		workPlace={{ label: '@Everping', link: 'https://www.linkedin.com/company/everping/' }}
 		{links}
 	/>
-	<Projects {supabase} />
+	<Projects {supabase} {session} />
 	<div class="flex gap-2">
 		{#if session}
 			<Button href="new" class="flex gap-1">
