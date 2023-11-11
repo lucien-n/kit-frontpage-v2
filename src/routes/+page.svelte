@@ -16,7 +16,7 @@
 	];
 </script>
 
-<div class="flex h-full w-full justify-center">
+<div class="flex h-full w-full justify-center items-start p-3">
 	<Profile
 		githubName="lucien-n"
 		name="Lucien Neuhoff"
