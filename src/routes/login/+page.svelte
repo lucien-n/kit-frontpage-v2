@@ -14,7 +14,7 @@
 	};
 
 	const onSuccess = () => {
-		goto('/');
+		goto('/', { invalidateAll: true });
 	};
 </script>
 
