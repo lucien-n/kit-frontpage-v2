@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import Tag from '$lib/components/Tag.svelte';
+	import Tag from '$lib/components/tag.svelte';
 	import * as Alert from '$lib/components/ui/alert';
 	import * as Card from '$lib/components/ui/card';
 	import type { PageData } from './$types';

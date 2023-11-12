@@ -1,10 +1,10 @@
 <script lang="ts">
-	import Profile from '$lib/components/Profile.svelte';
+	import Profile from '$lib/components/profile.svelte';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import type { Link } from '$lib/types';
 	import { LogOut, Plus } from 'lucide-svelte';
 	import type { PageData } from './$types';
-	import Projects from '$lib/components/Projects.svelte';
+	import Projects from '$lib/components/projects.svelte';
 
 	export let data: PageData;
 
