@@ -1,12 +1,13 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import Tag from '$lib/components/Tag.svelte';
 	import * as Alert from '$lib/components/ui/alert';
 	import * as Card from '$lib/components/ui/card';
 	import type { PageData } from './$types';
-	import ProjectForm from './tag-form.svelte';
+	import ProjectForm from './project-form.svelte';
 
 	export let data: PageData;
+
+	const { form } = data;
 
 	let error = '';
 
@@ -30,7 +31,7 @@
 
 		<Card.Root class="w-full">
 			<Card.Content>
-				<ProjectForm form={data.form} on:success={onSuccess} on:failure={onFailure} />
+				<ProjectForm {form} on:success={onSuccess} on:failure={onFailure} />
 			</Card.Content>
 		</Card.Root>
 	</div>

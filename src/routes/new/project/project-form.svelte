@@ -6,7 +6,7 @@
 	import { createEventDispatcher } from 'svelte';
 	import { slide } from 'svelte/transition';
 	import type { SuperValidated } from 'sveltekit-superforms';
-	import { projectSchema, type ProjectSchema } from './schema';
+	import { projectSchema, type ProjectSchema } from '$lib/schemas/project-schema';
 
 	export let form: SuperValidated<ProjectSchema>;
 

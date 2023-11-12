@@ -6,9 +6,9 @@
 	import { createEventDispatcher } from 'svelte';
 	import { slide } from 'svelte/transition';
 	import type { SuperValidated } from 'sveltekit-superforms';
-	import { tagSchema, type TagSchema } from '$lib/schemas/tag-schema';
+	import { projectSchema, type ProjectSchema } from './schema';
 
-	export let form: SuperValidated<TagSchema>;
+	export let form: SuperValidated<ProjectSchema>;
 
 	const dispatch = createEventDispatcher();
 
@@ -25,34 +25,40 @@
 	};
 </script>
 
-<Form.Root schema={tagSchema} {form} let:config>
+<Form.Root schema={projectSchema} {form} let:config>
 	<form method="POST" use:enhance={handleSubmit} class="flex flex-col gap-2">
-		<Form.Field {config} name="label">
+		<Form.Field {config} name="name">
 			<Form.Item>
-				<Form.Label>Label</Form.Label>
-				<Form.Input type="text" minlength={3} maxlength={24} placeholder="SvelteKit" />
+				<Form.Label>Name</Form.Label>
+				<Form.Input type="text" minlength={3} maxlength={80} placeholder="Some Project" />
 				<Form.Description />
 				<Form.Validation />
 			</Form.Item>
 		</Form.Field>
-		<Form.Field {config} name="color">
+		<Form.Field {config} name="description">
 			<Form.Item>
-				<Form.Label>Color</Form.Label>
-				<Form.Input type="text" minlength={6} maxlength={6} placeholder="1F0CAB" />
-				<Form.Description />
-				<Form.Validation />
-			</Form.Item>
-		</Form.Field>
-		<Form.Field {config} name="link">
-			<Form.Item>
-				<Form.Label>Link (optional)</Form.Label>
-				<Form.Input
-					type="text"
+				<Form.Label>Name</Form.Label>
+				<Form.Textarea
 					minlength={3}
-					maxlength={255}
-					placeholder="https://kit.svelte.dev/"
+					maxlength={80}
+					placeholder="This project was made in an attempt to..."
 				/>
 				<Form.Description />
+				<Form.Validation />
+			</Form.Item>
+		</Form.Field>
+		<Form.Field {config} name="slug">
+			<Form.Item>
+				<Form.Label>Name</Form.Label>
+				<Form.Input type="text" minlength={3} maxlength={80} placeholder="github-project" />
+				<Form.Description />
+				<Form.Validation />
+			</Form.Item>
+		</Form.Field>
+		<Form.Field {config} name="branch">
+			<Form.Item>
+				<Form.Label>Branch</Form.Label>
+				<Form.Input type="text" minlength={3} maxlength={80} placeholder="main" />
 				<Form.Validation />
 			</Form.Item>
 		</Form.Field>
@@ -61,7 +67,7 @@
 				class="transition-all ease-in-out duration-200"
 				transition:slide={{ axis: 'x', duration: 200 }}
 			>
-				{loading ? 'Creating' : 'Create'}
+				{loading ? 'Updating' : 'Update'}
 			</p>
 			{#if loading}
 				<span class="animate-spin" transition:slide={{ axis: 'x', duration: 200 }}>
