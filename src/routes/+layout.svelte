@@ -1,5 +1,6 @@
 <script>
 	import { titleStore } from '$lib/stores';
+	import { Toaster } from 'svelte-sonner';
 	import '../app.postcss';
 
 	import { invalidate } from '$app/navigation';
@@ -23,6 +24,8 @@
 <svelte:head>
 	<title>{$titleStore}</title>
 </svelte:head>
+
+<Toaster richColors />
 
 <main class="md:container w-full h-full overflow-hidden">
 	<slot />
