@@ -18,9 +18,9 @@ export const getProject = async (
 
 export const getProjects = async (
 	supabase: SupabaseClient<Database>,
-	limit = 0,
-	offset = 0,
-	match: object
+	limit: number = 0,
+	offset: number = 0,
+	match?: object
 ): Promise<TProject[] | null> => {
 	const query = supabase.from('projects').select();
 	if (match) query.match(match);

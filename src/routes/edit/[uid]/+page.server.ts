@@ -2,7 +2,7 @@ import { redirect, type Actions, fail, error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 import { projectSchema } from './schema';
 import { superValidate } from 'sveltekit-superforms/client';
-import { getProject } from '$lib/server/projects';
+import { getProject } from '$lib/supabase/projects';
 
 export const load: PageServerLoad = async ({
 	locals: { getSession, supabase },

@@ -5,6 +5,7 @@
 	import Button from '$lib/components/ui/button/button.svelte';
 	import { Edit, Github } from 'lucide-svelte';
 	import Separator from './ui/separator/separator.svelte';
+	import { getProjects } from '$lib/supabase/projects';
 
 	export let supabase: SupabaseClient;
 	export let session: Session | null;
@@ -12,10 +13,7 @@
 	let projects: TProject[] = [];
 
 	onMount(async () => {
-		const { data, error } = await supabase.from('projects').select('*');
-		if (error || !data) return;
-
-		projects = data;
+		projects = (await getProjects(supabase)) || [];
 	});
 </script>
 
