@@ -1,10 +1,9 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import * as Alert from '$lib/components/ui/alert';
+	import ProjectForm from '$lib/components/project-form.svelte';
 	import * as Card from '$lib/components/ui/card';
 	import { toast } from 'svelte-sonner';
 	import type { PageData } from './$types';
-	import ProjectForm from './project-form.svelte';
 
 	export let data: PageData;
 
