@@ -6,7 +6,7 @@
 	import { createEventDispatcher } from 'svelte';
 	import { slide } from 'svelte/transition';
 	import type { SuperValidated } from 'sveltekit-superforms';
-	import { tagSchema, type TagSchema } from './schema';
+	import { tagSchema, type TagSchema } from '$lib/schemas/tag-schema';
 
 	export let form: SuperValidated<TagSchema>;
 

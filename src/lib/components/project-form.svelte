@@ -6,9 +6,10 @@
 	import { createEventDispatcher } from 'svelte';
 	import { slide } from 'svelte/transition';
 	import type { SuperValidated } from 'sveltekit-superforms';
-	import { projectSchema, type ProjectSchema } from './schema';
+	import { projectSchema, type ProjectSchema } from '../../routes/edit/[uid]/schema';
 
 	export let form: SuperValidated<ProjectSchema>;
+	export let mode: 'edit' | 'create' = 'create';
 
 	const dispatch = createEventDispatcher();
 
@@ -37,10 +38,10 @@
 		</Form.Field>
 		<Form.Field {config} name="description">
 			<Form.Item>
-				<Form.Label>Name</Form.Label>
+				<Form.Label>Description</Form.Label>
 				<Form.Textarea
 					minlength={3}
-					maxlength={80}
+					maxlength={255}
 					placeholder="This project was made in an attempt to..."
 				/>
 				<Form.Description />
@@ -49,7 +50,7 @@
 		</Form.Field>
 		<Form.Field {config} name="slug">
 			<Form.Item>
-				<Form.Label>Name</Form.Label>
+				<Form.Label>Github Project Name</Form.Label>
 				<Form.Input type="text" minlength={3} maxlength={80} placeholder="github-project" />
 				<Form.Description />
 				<Form.Validation />
@@ -67,7 +68,11 @@
 				class="transition-all ease-in-out duration-200"
 				transition:slide={{ axis: 'x', duration: 200 }}
 			>
-				{loading ? 'Creating' : 'Create'}
+				{#if mode === 'create'}
+					{loading ? 'Creating' : 'Create'}
+				{:else}
+					{loading ? 'Updating' : 'Update'}
+				{/if}
 			</p>
 			{#if loading}
 				<span class="animate-spin" transition:slide={{ axis: 'x', duration: 200 }}>

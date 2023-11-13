@@ -1,6 +1,6 @@
 import { redirect, type Actions, fail } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
-import { projectSchema } from './schema';
+import { projectSchema } from '$lib/schemas/project-schema';
 import { superValidate } from 'sveltekit-superforms/client';
 
 export const load: PageServerLoad = async ({ locals: { getSession } }) => {
