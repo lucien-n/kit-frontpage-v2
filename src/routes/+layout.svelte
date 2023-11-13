@@ -1,5 +1,5 @@
 <script>
-	import { titleStore } from '$lib/stores';
+	import { sessionStore, titleStore } from '$lib/stores';
 	import { Toaster } from 'svelte-sonner';
 	import '../app.postcss';
 
@@ -15,6 +15,7 @@
 			if (_session?.expires_at !== session?.expires_at) {
 				invalidate('supabase:auth');
 			}
+			sessionStore.set(_session);
 		});
 
 		return () => data.subscription.unsubscribe();
