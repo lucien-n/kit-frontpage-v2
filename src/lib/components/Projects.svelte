@@ -4,7 +4,6 @@
 	import { getProjects } from '$lib/supabase/projects';
 	import Carousel from './carousel.svelte';
 	import Project from './project.svelte';
-	import { slide } from 'svelte/transition';
 
 	export let supabase: SupabaseClient;
 
@@ -22,9 +21,7 @@
 {#if projects.length}
 	<div class="w-full lg:w-2/3 xl:w-3/5 h-3/5">
 		<Carousel numberOfItems={projects.length - 1} bind:currentIndex={currentProjectIndex}>
-			{#key currentProjectIndex}
-				<Project project={getCurrentProject()} />
-			{/key}
+			<Project project={getCurrentProject()} />
 		</Carousel>
 	</div>
 {:else}
