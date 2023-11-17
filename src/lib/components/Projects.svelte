@@ -10,9 +10,11 @@
 	let projects: TProject[] = [];
 	let currentProjectIndex = 0;
 
-	onMount(async () => {
+	onMount(() => refreshProjects());
+
+	const refreshProjects = async () => {
 		projects = (await getProjects(supabase)) || [];
-	});
+	};
 
 	const getCurrentProject = () =>
 		currentProjectIndex <= projects.length ? projects[currentProjectIndex] : ({} as TProject);
@@ -20,6 +22,7 @@
 	const removeProject = (projectUid: string) => {
 		const index = projects.findIndex(({ uid }) => uid === projectUid);
 		projects = projects.slice(index);
+		refreshProjects();
 	};
 </script>
 
