@@ -27,14 +27,16 @@
 </script>
 
 {#if projects.length}
-	<div class="w-full lg:w-2/3 xl:w-3/5 h-3/5">
-		<Carousel numberOfItems={projects.length - 1} bind:currentIndex={currentProjectIndex}>
-			<Project
-				project={getCurrentProject()}
-				on:delete={({ detail: project }) => removeProject(project.uid)}
-			/>
-		</Carousel>
-	</div>
+	{#key projects}
+		<div class="w-full lg:w-2/3 xl:w-3/5 h-3/5">
+			<Carousel numberOfItems={projects.length - 1} bind:currentIndex={currentProjectIndex}>
+				<Project
+					project={getCurrentProject()}
+					on:delete={({ detail: project }) => removeProject(project.uid)}
+				/>
+			</Carousel>
+		</div>
+	{/key}
 {:else}
 	<h1 class="text-3xl">No projects to show</h1>
 {/if}
