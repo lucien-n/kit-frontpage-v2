@@ -16,12 +16,20 @@
 
 	const getCurrentProject = () =>
 		currentProjectIndex <= projects.length ? projects[currentProjectIndex] : ({} as TProject);
+
+	const removeProject = (projectUid: string) => {
+		const index = projects.findIndex(({ uid }) => uid === projectUid);
+		projects = projects.slice(index);
+	};
 </script>
 
 {#if projects.length}
 	<div class="w-full lg:w-2/3 xl:w-3/5 h-3/5">
 		<Carousel numberOfItems={projects.length - 1} bind:currentIndex={currentProjectIndex}>
-			<Project project={getCurrentProject()} />
+			<Project
+				project={getCurrentProject()}
+				on:delete={({ detail: project }) => removeProject(project.uid)}
+			/>
 		</Carousel>
 	</div>
 {:else}
