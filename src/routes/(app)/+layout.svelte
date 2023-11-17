@@ -1,7 +1,7 @@
 <script>
 	import { sessionStore, titleStore } from '$lib/stores';
 	import { Toaster } from 'svelte-sonner';
-	import '../app.postcss';
+	import '../../app.postcss';
 
 	import { invalidate } from '$app/navigation';
 	import { onMount } from 'svelte';

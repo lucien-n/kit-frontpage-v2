@@ -2,8 +2,7 @@
 	import { Button } from '$lib/components/ui/button';
 	import * as Card from '$lib/components/ui/card';
 	import { sessionStore } from '$lib/stores';
-	import { Edit, Github } from 'lucide-svelte';
-	import { slide } from 'svelte/transition';
+	import { Edit, Github, Trash } from 'lucide-svelte';
 
 	export let project: TProject;
 </script>
@@ -21,6 +20,7 @@
 		>
 		{#if $sessionStore}
 			<Button variant="secondary" href="/edit/{project.uid}"><Edit /></Button>
+			<Button variant="destructive" href="/api/project/{project.uid}?delete"><Trash /></Button>
 		{/if}
 	</Card.Footer>
 </Card.Root>
