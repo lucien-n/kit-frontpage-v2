@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
 	import * as Form from '$lib/components/ui/form';
+	import { projectSchema, type ProjectSchema } from '$lib/schemas/project-schema';
 	import type { SubmitFunction } from '@sveltejs/kit';
 	import { Loader2 } from 'lucide-svelte';
 	import { createEventDispatcher } from 'svelte';
 	import { slide } from 'svelte/transition';
 	import type { SuperValidated } from 'sveltekit-superforms';
-	import { projectSchema, type ProjectSchema } from '$lib/schemas/project-schema';
 
 	export let form: SuperValidated<ProjectSchema>;
 	export let mode: 'edit' | 'create' = 'create';
@@ -41,7 +41,7 @@
 				<Form.Label>Description</Form.Label>
 				<Form.Textarea
 					minlength={3}
-					maxlength={255}
+					maxlength={340}
 					placeholder="This project was made in an attempt to..."
 				/>
 				<Form.Description />
