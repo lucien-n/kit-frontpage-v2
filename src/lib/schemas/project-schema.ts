@@ -5,10 +5,14 @@ export const projectSchema = z.object({
 		.string()
 		.min(3, 'Name must be greater than 3 characters long')
 		.max(80, 'Name must be less than 80 characters long'),
+	category: z
+		.string()
+		.min(3, 'Category must be greater than 3 characters long')
+		.max(80, 'Category must be less than 80 characters long'),
 	description: z
 		.string()
 		.min(3, 'Name must be greater than 3 characters long')
-		.max(340, 'Name must be less than 80 characters long'),
+		.max(512, 'Name must be less than 80 characters long'),
 	slug: z
 		.string()
 		.min(3, 'Github slug must be greater than 3 characters long')

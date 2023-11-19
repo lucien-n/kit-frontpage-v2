@@ -36,12 +36,21 @@
 				<Form.Validation />
 			</Form.Item>
 		</Form.Field>
+		<Form.Field {config} name="category">
+			<Form.Item>
+				<Form.Label>Category</Form.Label>
+				<Form.Input type="text" minlength={3} maxlength={80} placeholder="Todo App" />
+				<Form.Description />
+				<Form.Validation />
+			</Form.Item>
+		</Form.Field>
 		<Form.Field {config} name="description">
 			<Form.Item>
 				<Form.Label>Description</Form.Label>
 				<Form.Textarea
 					minlength={3}
-					maxlength={340}
+					maxlength={512}
+					rows={8}
 					placeholder="This project was made in an attempt to..."
 				/>
 				<Form.Description />

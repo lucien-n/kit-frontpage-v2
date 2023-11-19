@@ -21,7 +21,7 @@
 	<div class="w-full md:w-2/3 lg:w-3/5 xl:w-2/5 gap-2 flex flex-col">
 		<Card.Root class="w-full">
 			<Card.Content>
-				<ProjectForm form={data.form} on:success={onSuccess} on:failure={onFailure} mode="edit" />
+				<ProjectForm form={data.form} on:success={onSuccess} on:failure={onFailure} mode="create" />
 			</Card.Content>
 		</Card.Root>
 	</div>

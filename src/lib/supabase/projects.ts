@@ -30,7 +30,9 @@ export const getProjects = async (
 
 	if (error) throw error;
 
-	if (data satisfies TProject[]) return data;
+	if (data satisfies TProject[]) {
+		return data;
+	}
 
 	return null;
 };

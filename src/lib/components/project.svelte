@@ -26,11 +26,17 @@
 </script>
 
 <Card.Root class="h-full w-full flex flex-col">
-	<Card.Header class="text-4xl font-semibold">
-		{project.name}
+	<Card.Header>
+		<div class="flex gap-3 items-end">
+			<h1 class="text-4xl font-bold tracking-tight">{project.name}</h1>
+			<p class="text-muted-foreground text-xl font-semibold">{project.category}</p>
+		</div>
 	</Card.Header>
-	<Card.Content class="text-lg">
-		{project.description}
+	<Card.Content class="text-xl flex items-center h-full">
+		{#each project.description.split('<br/>') as line}
+			{line}
+			<br />
+		{/each}
 	</Card.Content>
 	<Card.Footer class="mt-auto flex justify-between">
 		<Button href="https://github.com/lucien-n/{project.slug}" class="flex items-center gap-1 w-fit"

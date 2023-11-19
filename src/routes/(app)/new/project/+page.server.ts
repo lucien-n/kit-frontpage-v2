@@ -1,7 +1,7 @@
-import { redirect, type Actions, fail } from '@sveltejs/kit';
-import type { PageServerLoad } from './$types';
 import { projectSchema } from '$lib/schemas/project-schema';
+import { fail, redirect, type Actions } from '@sveltejs/kit';
 import { superValidate } from 'sveltekit-superforms/client';
+import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ locals: { getSession } }) => {
 	const session = await getSession();
@@ -27,9 +27,13 @@ export const actions: Actions = {
 			});
 		}
 
-		const { name, description, slug, branch } = form.data;
+		const { name, description, slug, branch, category } = form.data;
 
-		const { error } = await supabase.from('projects').insert({ name, description, slug, branch });
+		const formattedDescription = description.replace('\n', '<br/>');
+
+		const { error } = await supabase
+			.from('projects')
+			.insert({ name, description: formattedDescription, slug, branch, category });
 
 		if (error) {
 			return fail(500, {

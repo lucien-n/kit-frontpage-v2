@@ -12,6 +12,7 @@ export interface Database {
       projects: {
         Row: {
           branch: string
+          category: string
           created_at: string
           description: string
           name: string
@@ -20,6 +21,7 @@ export interface Database {
         }
         Insert: {
           branch: string
+          category: string
           created_at?: string
           description: string
           name: string
@@ -28,6 +30,7 @@ export interface Database {
         }
         Update: {
           branch?: string
+          category?: string
           created_at?: string
           description?: string
           name?: string
